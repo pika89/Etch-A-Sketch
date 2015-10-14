@@ -20,7 +20,9 @@ $(document).ready(function(){
     margin: '0 1px',
     'box-sizing': 'border-box'
   }).hover(function() {
-    $(this).css('background-color','red')
+  	var colours = ["red", "blue", "green", "purple", "black", "yellow"];
+    colour = colours[Math.floor((Math.random() * colours.length))];
+    $(this).css('background-color', colour);
   });
 
 
@@ -41,6 +43,7 @@ $('.container').css({
     'font-size': '16px'
   });
 
+
 });
 
 
@@ -53,7 +56,7 @@ function newGrid(){
 
 	var width = prompt ('Enter new grid width:');
 
-	if(width>128)
+	if(width>65)
 	{
 		var width = prompt ('Cant be more than 128:');
 	}
@@ -74,6 +77,17 @@ function newGrid(){
   }
 
 	$('.container').prepend('<button onclick="newGrid();">New Grid</button>')
+	$('.container').prepend('<button id ="clear">Clear Color</button>')
+	$('.container').prepend('<button id ="clearBorder"> Clear Border </button>')
+
+	$('#clear').click(function() {
+   		$('li').css('background-color','white');
+									});
+
+	$('#clearBorder').click(function() {
+   		$('li').css('border','0');
+									});
+
 
     $('li').css({
     display: 'inline-block',
@@ -84,7 +98,9 @@ function newGrid(){
     margin: '0 1px',
     'box-sizing': 'border-box'
   }).hover(function() {
-    $(this).css('background-color','red')
+  	var colours = ["red", "blue", "green", "purple", "black", "yellow"];
+    colour = colours[Math.floor((Math.random() * colours.length))];
+    $(this).css('background-color', colour)
   });
 
   $('.container').css({
@@ -101,6 +117,9 @@ function newGrid(){
     padding: '10px',
     'font-size': '16px'
   });
+
+ 
+
 };
 
 
